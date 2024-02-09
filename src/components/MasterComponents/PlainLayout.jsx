@@ -4,10 +4,11 @@ import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
 
+import SortInput from '../Site Forms/SortInput';
 
 const PlainLayout = ({ children }) => {
 
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(true)
     const [IsNavToggle, setIsNavToggle] = useState(false)
 
     return (
@@ -72,13 +73,19 @@ const PlainLayout = ({ children }) => {
                         </div>
 
                         {/* Sidebar for mobile */}
-                        <aside className={`fixed top-16 left-0 z-20 flex flex-col flex-shrink-0 ${IsNavToggle ? "w-full" : "w-0"} h-full font-normal transition-all delay-300 duration-300  lg:hidden bg-gray-900/50`}>
+                        <aside className={`fixed top-16 left-0 z-20 flex flex-col flex-shrink-0 ${IsNavToggle ? "w-full" : "w-0"} h-full font-normal transition-all delay-300 duration-300  lg:hidden bg-gray-300/50 dark:bg-gray-900/50`}>
 
                             <div className='relative flex flex-col flex-1 h-full pt-0 w-2/3 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700'>
 
                                 <div className='flex flex-col flex-1 pt-5 pb-4 overflow-y-auto'>
                                     <div className='flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700'>
-                                        <ul>
+                                        <ul className='grid grid-cols-1 gap-6 w-full'>
+                                            <li>
+                                                <p className='text-base text-left text-gray-900 rounded-lg  dark:text-gray-200 font-bold font-inter mb-2'>
+                                                    Sort By:
+                                                </p>
+                                                <SortInput />
+                                            </li>
                                             <li>
                                                 <Searchbar />
                                             </li>
@@ -90,13 +97,26 @@ const PlainLayout = ({ children }) => {
                     </div>
                 </div>
 
-                <div>
-                    <div className="relative lg:flex flex-col flex-1  pt-0 w-full hidden lg:max-w-[200px]  2xl:max-w-[300px] bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 h-screen">
-                        <div className='py-3 px-1 lg:px-2'>
-
+                <div className='flex items-start justify-between'>
+                    <div className=" relative lg:block  w-full hidden lg:max-w-[240px]  2xl:max-w-[300px] bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700  h-screen pt-[64px]  lg:pt-[87px] ">
+                        <div className='py-3 px-2 lg:px-4'>
+                            <p className='text-base text-left text-gray-900 rounded-lg  dark:text-gray-200 font-bold font-inter'>
+                                Sort By:
+                            </p>
+                            <div>
+                                <ul>
+                                    <li className='mt-1'>
+                                        <SortInput />
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
+                    <div className='h-screen overflow-y-scroll pt-[64px]  lg:pt-[87px] w-full lg:w-[calc(100%-240px)] 2xl:w-[calc(100%-300px)]  bg-gray-50  dark:bg-gray-900'>
+                        <div>
+                            {children}
+                        </div>
+                    </div>
                 </div>
 
             </div>
