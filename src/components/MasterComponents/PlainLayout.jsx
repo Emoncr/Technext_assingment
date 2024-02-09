@@ -3,7 +3,6 @@ import { FaSearch, } from 'react-icons/fa'
 import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
-
 import SortInput from '../Site Forms/SortInput';
 
 const PlainLayout = ({ children }) => {
@@ -118,7 +117,6 @@ const PlainLayout = ({ children }) => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </main>
     )
