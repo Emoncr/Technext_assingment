@@ -1,10 +1,18 @@
 import './App.css'
+import Home from './pages/Home'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserDetails from './pages/UserDetails';
 
 function App() {
 
   return (
     <>
-      <h1 className='text-5xl'>hellow world</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/details/:id' element={<UserDetails />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
