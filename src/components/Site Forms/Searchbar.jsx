@@ -68,7 +68,7 @@ const Searchbar = () => {
                                         {
                                             loading ?
                                                 <div>
-                                                    <p class="text-sm lg:text-lg text-gray-800 dark:text-gray-200">
+                                                    <p className="text-sm lg:text-lg text-gray-800 dark:text-gray-200">
                                                         Loading...
                                                     </p>
                                                 </div>
@@ -86,7 +86,7 @@ const Searchbar = () => {
                             </div>
                             :
                             <div className='p-3  w-full  bg-gray-50  dark:bg-gray-900 border border-gray-200 rounded-lg shadow  dark:border-gray-700 z-50 max-w-full lg:max-w-[384px] mx-auto max-h-[500px] lg:max-h-[660px] overflow-y-scroll absolute transition '>
-                                <p class="text-sm lg:text-lg text-gray-500 dark:text-gray-400">No Result Found!</p>
+                                <p className="text-sm lg:text-lg text-gray-500 dark:text-gray-400">No Result Found!</p>
                             </div>
                     }
                 </div>

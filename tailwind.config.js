@@ -11,14 +11,6 @@ export default {
 
       colors: {
         brand: "#eb6126",
-        // lightBg: "#F9FAFB",
-        // lightHeading: "#111827",
-        // lightDesc: "#6b7280",
-
-        // darkBrand: "#E7522A",
-        // darkBg: "#111827",
-        // darkHeading: "#ffffff",
-        // darkDesc: "#e5e7eb",
         primary: {
           50: "#eff6ff",
           100: "#dbeafe",
