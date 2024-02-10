@@ -3,25 +3,4 @@
 
 @tailwind base;
 @tailwind components;
-
-/* Here is custom global Css */
-.container {
-  @apply max-w-[1920px] px-5 sm:px-6 lg:px-8;
-}
-.input_feild {
-  @apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 font-inter font-semibold;
-}
-
-.deatils_text {
-  @apply text-sm xl:text-xl lg:text-lg text-gray-800 dark:text-gray-300 mt-1 font-barlow font-semibold border border-gray-300 dark:bg-gray-800 dark:border-gray-700 p-2;
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: "";
-}
-
-
 @tailwind utilities;

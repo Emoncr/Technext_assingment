@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FaHome, FaSearch, } from 'react-icons/fa'
 import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
@@ -31,23 +31,23 @@ const SiteNavWraper = ({ children }) => {
                 <div className='px-3 py-3 lg:py-5 lg:px-10 lg:pl-5 relative'>
                     <div className='flex items-center justify-between'>
                         <div>
-                            <Link to={"/"}>
-                                {
-                                    darkMode ?
-                                        <Link to={"/"}>
-                                            <img className='w-[80px] lg:w-[150px]'
-                                                src="/images/Logo white.png"
-                                                alt="LOGO" />
-                                        </Link>
-                                        :
 
-                                        <Link to={"/"}>
-                                            <img className='w-[80px] lg:w-[150px]'
-                                                src="/images/Logo black.png"
-                                                alt="LOGO" />
-                                        </Link>
-                                }
-                            </Link>
+                            {
+                                darkMode ?
+                                    <Link to={"/"}>
+                                        <img className='w-[80px] lg:w-[150px]'
+                                            src="/images/Logo white.png"
+                                            alt="LOGO" />
+                                    </Link>
+                                    :
+
+                                    <Link to={"/"}>
+                                        <img className='w-[80px] lg:w-[150px]'
+                                            src="/images/Logo black.png"
+                                            alt="LOGO" />
+                                    </Link>
+                            }
+
                         </div>
                         <div className='flex items-center justify-between gap-1'>
                             <button
