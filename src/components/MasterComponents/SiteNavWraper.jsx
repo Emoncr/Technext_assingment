@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { FaHome, FaSearch, } from 'react-icons/fa'
 import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
@@ -6,13 +6,24 @@ import Searchbar from '../Site Forms/Searchbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { FaUserPlus } from "react-icons/fa6";
+import { darkModeState } from './PlainLayout';
 
 
 const SiteNavWraper = ({ children }) => {
-    const [darkMode, setDarkMode] = useState(true)
+
+
+    const [darkMode, setDarkMode] = useState(darkModeState.value)
     const [IsNavToggle, setIsNavToggle] = useState(false)
 
     const navigate = useNavigate()
+
+
+    const setDarkModeState = () => {
+        darkModeState.value = !darkModeState.value;
+        setDarkMode(darkModeState.value)
+    }
+
+
 
     return (
         <div className={`${darkMode ? "dark" : ""} transition-all duration-300`}>
@@ -23,9 +34,10 @@ const SiteNavWraper = ({ children }) => {
                             <Link to={"/"}>
                                 {
                                     darkMode ?
-                                        <img className='w-[100px] lg:w-[150px]' src="/src/assets/images/logo.png" alt="LOGO" />
+                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo white.png" alt="LOGO" />
                                         :
-                                        <img className='w-[100px] lg:w-[150px]' src="/src/assets/images/logo black.png" alt="LOGO" />
+
+                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo black.png" alt="LOGO" />
                                 }
                             </Link>
                         </div>
@@ -57,11 +69,11 @@ const SiteNavWraper = ({ children }) => {
 
 
                             <button
-                                onClick={() => setDarkMode(!darkMode)}
+                                onClick={() => setDarkModeState()}
 
                                 className='p-2 lg:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
                                 {
-                                    darkMode ? <BsMoonStarsFill /> : <MdSunny />
+                                    darkMode ? <MdSunny /> : <BsMoonStarsFill />
                                 }
                             </button>
 

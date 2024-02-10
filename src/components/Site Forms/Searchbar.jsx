@@ -37,8 +37,6 @@ const Searchbar = () => {
         })()
     }, [searchQuery])
 
-    console.log(searchResult);
-    console.log(searchQuery);
 
 
     return (

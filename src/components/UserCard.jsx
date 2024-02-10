@@ -38,7 +38,7 @@ const UserCard = ({ userInfo }) => {
                     <div className='flex flex-col items-center'>
                         <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src={image} alt="User image" />
                         <Link to={`/details/${id}`}>
-                            <h5 className="mb-1 text-xl  text-gray-900 dark:text-white font-inter font-semibold">{firstName} {lastName}</h5>
+                            <h5 className="mb-1 text-xl  text-gray-900 dark:text-white font-inter font-semibold hover:underline hover:!text-brand">{firstName} {lastName}</h5>
                         </Link>
                     </div>
                     <div className='px-2'>

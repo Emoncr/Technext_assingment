@@ -27,7 +27,7 @@ const AddUserForm = () => {
             })
 
             const res = await reqest.json();
-            console.log("res", res);
+ 
             setLoading(false)
             toast.success("User created successfully")
 
@@ -44,8 +44,6 @@ const AddUserForm = () => {
 
 
 
-
-    console.log(data);
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)} className="max-w-7xl mx-auto">

@@ -29,7 +29,7 @@ const UserDetails = () => {
         })()
     }, [])
 
-    console.log(userData);
+
 
 
 
