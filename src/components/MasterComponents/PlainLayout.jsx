@@ -40,10 +40,14 @@ const PlainLayout = ({ children, userInfo },) => {
                             <div>
                                 {
                                     darkMode ?
-                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo white.png" alt="LOGO" />
+                                        <img className='w-[80px] lg:w-[150px]' 
+                                        src="../../../public/images/Logo white.png" 
+                                        alt="LOGO" />
                                         :
 
-                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo black.png" alt="LOGO" />
+                                        <img className='w-[80px] lg:w-[150px]' 
+                                        src="../../../public/images/Logo black.png" 
+                                        alt="LOGO" />
 
 
                                 }
