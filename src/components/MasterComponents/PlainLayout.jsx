@@ -4,6 +4,11 @@ import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
 import SortInput from '../Site Forms/SortInput';
+import { Toaster } from 'react-hot-toast';
+
+
+
+
 
 const PlainLayout = ({ children }) => {
 
@@ -118,6 +123,7 @@ const PlainLayout = ({ children }) => {
                     </div>
                 </div>
             </div>
+            <Toaster />
         </main>
     )
 }

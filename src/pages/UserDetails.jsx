@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import UserDetailsCard from '../components/UserDetailsCard';
 import LoadingSpiner from '../components/LoadingSpiner';
 
+
 const UserDetails = () => {
 
     const [userData, setUserData] = useState({});
@@ -16,9 +17,9 @@ const UserDetails = () => {
         (async () => {
             try {
                 setLoading(true)
-                const res = await fetch(`/users/${parseInt(params.id)}`);
+                const res = await fetch(`https://dummyjson.com/users/${parseInt(params.id)}`);
                 const data = await res.json();
-                
+
                 setUserData(data)
                 setLoading(false)
             } catch (error) {

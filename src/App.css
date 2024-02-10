@@ -1,0 +1,8 @@
+/* Handle Search Scrollbar CSS */
+.search_scrollber::-webkit-scrollbar {
+  @apply w-[2px];
+}
+
+.search_scrollber::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-400;
+}
