@@ -4,6 +4,7 @@ import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
 import { Link } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -103,6 +104,7 @@ const SiteNavWraper = ({ children }) => {
                 </div>
 
             </div>
+            <Toaster/>
         </div>
     )
 }

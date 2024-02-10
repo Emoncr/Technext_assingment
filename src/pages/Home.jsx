@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("/users");
+                const res = await fetch(`https://dummyjson.com/users`);
                 const data = await res.json();
                 setUsersData(data["users"])
             } catch (error) {
@@ -22,7 +22,7 @@ const Home = () => {
 
 
 
-    console.log(usersData);
+    // console.log(usersData);
 
 
 
