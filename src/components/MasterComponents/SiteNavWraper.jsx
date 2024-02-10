@@ -34,10 +34,14 @@ const SiteNavWraper = ({ children }) => {
                             <Link to={"/"}>
                                 {
                                     darkMode ?
-                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo white.png" alt="LOGO" />
+                                        <img className='w-[80px] lg:w-[150px]'
+                                            src="../../../public/images/Logo white.png"
+                                            alt="LOGO" />
                                         :
 
-                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo black.png" alt="LOGO" />
+                                        <img className='w-[80px] lg:w-[150px]'
+                                            src="../../../public/images/Logo black.png"
+                                            alt="LOGO" />
                                 }
                             </Link>
                         </div>
