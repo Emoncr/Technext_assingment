@@ -29,7 +29,7 @@ const UpdateUser = () => {
         })()
     }, [])
 
-console.log(data);
+
 
     return (
         <SiteNavWraper>

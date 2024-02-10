@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { FaHome, FaSearch, } from 'react-icons/fa'
 import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
@@ -7,16 +7,28 @@ import SortInput from '../Site Forms/SortInput';
 import { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { FaUserPlus } from "react-icons/fa6";
+import { signal } from '@preact/signals-react';
 
 
 
 
 
-const PlainLayout = ({ children }) => {
+export const darkModeState = signal(true); //Using React Signal for global state
 
-    const [darkMode, setDarkMode] = useState(true)
+
+const PlainLayout = ({ children, userInfo },) => {
+
+    const [darkMode, setDarkMode] = useState(darkModeState.value)
     const [IsNavToggle, setIsNavToggle] = useState(false)
     const navigate = useNavigate()
+
+
+
+
+    const setDarkModeState = () => {
+        darkModeState.value = !darkModeState.value;
+        setDarkMode(darkModeState.value)
+    }
 
 
     return (
@@ -28,9 +40,12 @@ const PlainLayout = ({ children }) => {
                             <div>
                                 {
                                     darkMode ?
-                                        <img className='w-[100px] lg:w-[150px]' src="/src/assets/images/logo.png" alt="LOGO" />
+                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo white.png" alt="LOGO" />
                                         :
-                                        <img className='w-[100px] lg:w-[150px]' src="/src/assets/images/logo black.png" alt="LOGO" />
+
+                                        <img className='w-[80px] lg:w-[150px]' src="/public/images/Logo black.png" alt="LOGO" />
+
+
                                 }
                             </div>
                             <div className='flex items-center justify-between gap-1'>
@@ -59,11 +74,11 @@ const PlainLayout = ({ children }) => {
                                 </button>
 
                                 <button
-                                    onClick={() => setDarkMode(!darkMode)}
+                                    onClick={() => setDarkModeState()}
 
                                     className='p-1 md:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
                                     {
-                                        darkMode ? <BsMoonStarsFill /> : <MdSunny />
+                                        darkMode ? <MdSunny /> : <BsMoonStarsFill />
                                     }
                                 </button>
 
@@ -103,7 +118,7 @@ const PlainLayout = ({ children }) => {
                                                 <p className='text-base text-left text-gray-900 rounded-lg  dark:text-gray-200 font-bold font-inter mb-2'>
                                                     Sort By:
                                                 </p>
-                                                <SortInput />
+                                                <SortInput userInfo={userInfo} />
                                             </li>
                                             <li>
                                                 <Searchbar />
@@ -125,7 +140,7 @@ const PlainLayout = ({ children }) => {
                             <div>
                                 <ul>
                                     <li className='mt-1'>
-                                        <SortInput />
+                                        <SortInput userInfo={userInfo} />
                                     </li>
                                 </ul>
                             </div>
