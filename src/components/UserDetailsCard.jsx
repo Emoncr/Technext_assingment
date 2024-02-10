@@ -7,15 +7,14 @@ const UserDetailsCard = ({ userData }) => {
 
 
     return (
-        <div className="pb-10 px-4  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div >
             <div className='flex flex-col items-center'>
                 <img className="lg:w-28 lg:h-28 w-20 h-20 -mt-10 lg:-mt-14 bg-red-400 rounded-full shadow-lg" src={image} alt="user  image" />
 
-                <h5 className="mb-1 text-xl lg:text-3xl mt-3  text-gray-900 dark:text-white font-inter font-semibold">{firstName} {maidenName} {lastName}</h5>
+                <h5 className="mb-1 text-xl lg:text-3xl mt-3  text-gray-900 dark:text-white font-inter font-semibold text-center">{firstName} {maidenName} {lastName}</h5>
 
             </div>
             <div className='px-2 max-w-7xl mx-auto'>
-
 
                 <div className='mt-4 lg:mt-6' >
                     <p className='text-lg lg:text-2xl text-left text-gray-900 rounded-lg  dark:text-gray-200 font-medium font-barlow mb-2' >Personal Informations

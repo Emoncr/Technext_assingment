@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import { FaSearch, } from 'react-icons/fa'
+import { FaHome, FaSearch, } from 'react-icons/fa'
 import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-
+import { FaUserPlus } from "react-icons/fa6";
 
 
 const SiteNavWraper = ({ children }) => {
     const [darkMode, setDarkMode] = useState(true)
     const [IsNavToggle, setIsNavToggle] = useState(false)
 
-
+    const navigate = useNavigate()
 
     return (
         <div className={`${darkMode ? "dark" : ""} transition-all duration-300`}>
@@ -29,7 +29,7 @@ const SiteNavWraper = ({ children }) => {
                                 }
                             </Link>
                         </div>
-                        <div className='flex items-center justify-between gap-1 sm:gap-3 lg:gap-6'>
+                        <div className='flex items-center justify-between gap-1'>
                             <button
                                 onClick={() => setIsNavToggle(!IsNavToggle)}
                                 className='p-2 text-gray-500 rounded-lg  hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden'
@@ -38,9 +38,22 @@ const SiteNavWraper = ({ children }) => {
                             </button>
 
                             {/* Search bar for Large device */}
-                            <div className='hidden lg:block'>
+                            <div className='hidden lg:block mr-2'>
                                 <Searchbar />
                             </div>
+
+
+                            <button
+                                onClick={() => navigate("/")}
+                                className='p-2 lg:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
+                                <FaHome />
+                            </button>
+
+                            <button
+                                onClick={() => navigate(`/user/create`)}
+                                className='p-2 lg:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
+                                <FaUserPlus />
+                            </button>
 
 
                             <button
@@ -51,7 +64,6 @@ const SiteNavWraper = ({ children }) => {
                                     darkMode ? <BsMoonStarsFill /> : <MdSunny />
                                 }
                             </button>
-
 
                             <button
                                 onClick={() => setIsNavToggle(!IsNavToggle)}
@@ -96,7 +108,7 @@ const SiteNavWraper = ({ children }) => {
                 </div>
             </nav>
 
-            <div className=''>
+            <div >
                 <div className='h-full min-h-screen overflow-y-scroll pt-[64px]  lg:pt-[80px] w-full  bg-gray-50  dark:bg-gray-900'>
                     <div>
                         {children}
@@ -104,7 +116,7 @@ const SiteNavWraper = ({ children }) => {
                 </div>
 
             </div>
-            <Toaster/>
+            <Toaster />
         </div>
     )
 }

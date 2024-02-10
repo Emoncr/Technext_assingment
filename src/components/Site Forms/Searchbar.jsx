@@ -8,10 +8,10 @@ const Searchbar = () => {
     const [loading, setLoading] = useState(false)
 
 
-
     const handleChange = (e) => {
         if (!e.target.value) {
             setSearchResult([])
+            setSearchQuery("")
         }
         else {
             setSearchQuery(e.target.value)

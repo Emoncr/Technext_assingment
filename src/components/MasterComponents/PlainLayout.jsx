@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { FaSearch, } from 'react-icons/fa'
+import { FaHome, FaSearch, } from 'react-icons/fa'
 import { MdSunny } from "react-icons/md";
 import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
 import SortInput from '../Site Forms/SortInput';
 import { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { FaUserPlus } from "react-icons/fa6";
 
 
 
@@ -14,6 +16,8 @@ const PlainLayout = ({ children }) => {
 
     const [darkMode, setDarkMode] = useState(true)
     const [IsNavToggle, setIsNavToggle] = useState(false)
+    const navigate = useNavigate()
+
 
     return (
         <main>
@@ -29,7 +33,7 @@ const PlainLayout = ({ children }) => {
                                         <img className='w-[100px] lg:w-[150px]' src="/src/assets/images/logo black.png" alt="LOGO" />
                                 }
                             </div>
-                            <div className='flex items-center justify-between gap-1 sm:gap-3 lg:gap-6'>
+                            <div className='flex items-center justify-between gap-1'>
                                 <button
                                     onClick={() => setIsNavToggle(!IsNavToggle)}
                                     className='p-2 text-gray-500 rounded-lg  hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden'
@@ -38,15 +42,26 @@ const PlainLayout = ({ children }) => {
                                 </button>
 
                                 {/* Search bar for Large device */}
-                                <div className='hidden lg:block'>
+                                <div className='hidden lg:block mr-5'>
                                     <Searchbar />
                                 </div>
 
+                                <button
+                                    onClick={() => navigate("/")}
+                                    className='p-1 md:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
+                                    <FaHome />
+                                </button>
+
+                                <button
+                                    onClick={() => navigate(`/user/create`)}
+                                    className='p-1 md:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
+                                    <FaUserPlus />
+                                </button>
 
                                 <button
                                     onClick={() => setDarkMode(!darkMode)}
 
-                                    className='p-2 lg:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
+                                    className='p-1 md:p-3 text-gray-500 rounded-lg   hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xl'>
                                     {
                                         darkMode ? <BsMoonStarsFill /> : <MdSunny />
                                     }

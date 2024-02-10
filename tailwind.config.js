@@ -10,7 +10,7 @@ export default {
       },
 
       colors: {
-        // brand: "#E7522A",
+        brand: "#eb6126",
         // lightBg: "#F9FAFB",
         // lightHeading: "#111827",
         // lightDesc: "#6b7280",

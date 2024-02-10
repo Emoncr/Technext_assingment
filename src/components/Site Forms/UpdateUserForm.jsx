@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
-import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
-const AddUserForm = () => {
-    const [data, setData] = useState({})
+import { useState } from 'react'
+import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom';
+
+
+const UpdateUserForm = ({ userInfo }) => {
+    const { data, setData } = userInfo;
 
     const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -20,24 +24,23 @@ const AddUserForm = () => {
 
         try {
             setLoading(true)
-            const reqest = await fetch('https://dummyjson.com/users/add', {
-                method: 'POST',
+            const reqest = await fetch(`https://dummyjson.com/users/${data.id && data.id}`, {
+                method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
 
             const res = await reqest.json();
-            console.log("res", res);
-            setLoading(false)
-            toast.success("User created successfully")
 
+            setLoading(false)
+            toast.success("User updated, Redirecting...")
             setTimeout(() => {
                 navigate(`/details/${data.id && data.id}`)
             }, 3000);
 
         } catch (error) {
             setLoading(false)
-            toast.error("User creating failed!")
+            toast.error("User updating failed!")
             console.log(error);
         }
     }
@@ -45,7 +48,6 @@ const AddUserForm = () => {
 
 
 
-    console.log(data);
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)} className="max-w-7xl mx-auto">
@@ -109,7 +111,7 @@ const AddUserForm = () => {
                         <input
                             value={data.phone && data.phone}
                             onChange={e => setData({ ...data, phone: e.target.value })}
-                            type="number"
+                            type="text"
                             id="phone"
                             placeholder="01883049802"
                             required
@@ -196,13 +198,13 @@ const AddUserForm = () => {
 
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3 md:gap-y-5
-                mt-4 lg:mt-7'>
+            mt-4 lg:mt-7'>
 
                     <div className="input_block">
                         <label htmlFor="company" >Company Name</label>
                         <input
-                            value={data.comapny && data.comapny.name && data.comapny.name}
-                            onChange={e => setData({ ...data, comapny: { ...data?.comapny, name: e.target.value } })}
+                            value={data.company && data.company.name && data.company.name}
+                            onChange={e => setData({ ...data, company: { ...data?.company, name: e.target.value } })}
                             type="text"
                             id="company"
                             placeholder="Blanda-O'Keefe"
@@ -213,8 +215,8 @@ const AddUserForm = () => {
                     <div className="input_block">
                         <label htmlFor="tittle" >Title</label>
                         <input
-                            value={data.comapny && data.comapny.title && data.comapny.title}
-                            onChange={e => setData({ ...data, comapny: { ...data?.comapny, title: e.target.value } })}
+                            value={data.company && data.company.title && data.company.title}
+                            onChange={e => setData({ ...data, company: { ...data?.company, title: e.target.value } })}
                             type="text"
                             id="tittle"
                             placeholder="Help Desk Operator"
@@ -225,8 +227,8 @@ const AddUserForm = () => {
                     <div className="input_block">
                         <label htmlFor="department" >Department</label>
                         <input
-                            value={data.comapny && data.comapny.department && data.comapny.department}
-                            onChange={e => setData({ ...data, comapny: { ...data?.comapny, department: e.target.value } })}
+                            value={data.company && data.company.department && data.company.department}
+                            onChange={e => setData({ ...data, company: { ...data?.company, department: e.target.value } })}
                             type="text"
                             id="department"
                             placeholder="Marketing"
@@ -280,13 +282,14 @@ const AddUserForm = () => {
                         className="brand_btn"
                     >
                         {
-                            loading ? "Creating..." : "Create new user"
+                            loading ? "Updating..." : "Update user"
                         }
                     </button>
+
                 </div>
             </form>
         </div>
     )
 }
 
-export default AddUserForm
+export default UpdateUserForm

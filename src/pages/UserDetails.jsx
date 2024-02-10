@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import SiteNavWraper from '../components/MasterComponents/SiteNavWraper'
-import { Link, useParams } from 'react-router-dom'
 import UserDetailsCard from '../components/UserDetailsCard';
 import LoadingSpiner from '../components/LoadingSpiner';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 const UserDetails = () => {
@@ -11,7 +11,7 @@ const UserDetails = () => {
     const [loading, setLoading] = useState(false)
 
     const params = useParams();
-
+    const navigate = useNavigate()
 
     useEffect(() => {
         (async () => {
@@ -29,7 +29,7 @@ const UserDetails = () => {
         })()
     }, [])
 
-
+    console.log(userData);
 
 
 
@@ -37,9 +37,25 @@ const UserDetails = () => {
 
         <SiteNavWraper>
             <div className="w-full py-16 lg:py-20 px-6">
-                {
-                    loading ? <LoadingSpiner/> : <UserDetailsCard userData={userData} />
-                }
+                <div className="pb-10 px-4  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    {
+                        loading
+                            ?
+                            <div className='mt-10'>
+                                <LoadingSpiner />
+                            </div>
+                            :
+                            <UserDetailsCard userData={userData} />
+                    }
+                    <div className='mt-10 flex items-center justify-center'>
+                        <button
+                            onClick={() => navigate(`/user/update/${userData.id && userData.id}`)}
+                            className="brand_btn ">
+                            Update this user
+                        </button>
+                        
+                    </div>
+                </div>
             </div>
         </SiteNavWraper>
     )
