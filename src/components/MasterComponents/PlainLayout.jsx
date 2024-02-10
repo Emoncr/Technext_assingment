@@ -12,11 +12,17 @@ import { FaUserPlus } from "react-icons/fa6";
 
 
 
-const PlainLayout = ({ children }) => {
+const PlainLayout = ({ children, userInfo },) => {
+    const { usersData, setUsersData } = userInfo;
+
 
     const [darkMode, setDarkMode] = useState(true)
     const [IsNavToggle, setIsNavToggle] = useState(false)
     const navigate = useNavigate()
+
+
+
+
 
 
     return (
@@ -103,7 +109,7 @@ const PlainLayout = ({ children }) => {
                                                 <p className='text-base text-left text-gray-900 rounded-lg  dark:text-gray-200 font-bold font-inter mb-2'>
                                                     Sort By:
                                                 </p>
-                                                <SortInput />
+                                                <SortInput userInfo={userInfo} />
                                             </li>
                                             <li>
                                                 <Searchbar />
@@ -125,7 +131,7 @@ const PlainLayout = ({ children }) => {
                             <div>
                                 <ul>
                                     <li className='mt-1'>
-                                        <SortInput />
+                                        <SortInput userInfo={userInfo} />
                                     </li>
                                 </ul>
                             </div>

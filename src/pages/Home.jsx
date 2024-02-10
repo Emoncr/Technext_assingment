@@ -29,7 +29,7 @@ const Home = () => {
 
     return (
         <>
-            <PlainLayout>
+            <PlainLayout userInfo={{ usersData, setUsersData }}>
                 <div className='p-3 '>
                     <div>
                         {
