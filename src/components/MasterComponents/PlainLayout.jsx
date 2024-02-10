@@ -5,7 +5,7 @@ import { BsMoonStarsFill } from "react-icons/bs";
 import Searchbar from '../Site Forms/Searchbar';
 import SortInput from '../Site Forms/SortInput';
 import { Toaster } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUserPlus } from "react-icons/fa6";
 import { signal } from '@preact/signals-react';
 
@@ -40,14 +40,18 @@ const PlainLayout = ({ children, userInfo },) => {
                             <div>
                                 {
                                     darkMode ?
-                                        <img className='w-[80px] lg:w-[150px]' 
-                                        src="../../../public/images/Logo white.png" 
-                                        alt="LOGO" />
+                                        <Link to={"/"}>
+                                            <img className='w-[80px] lg:w-[150px]'
+                                                src="/images/Logo white.png"
+                                                alt="LOGO" />
+                                        </Link>
                                         :
 
-                                        <img className='w-[80px] lg:w-[150px]' 
-                                        src="../../../public/images/Logo black.png" 
-                                        alt="LOGO" />
+                                        <Link to={"/"}>
+                                            <img className='w-[80px] lg:w-[150px]'
+                                                src="/images/Logo black.png"
+                                                alt="LOGO" />
+                                        </Link>
 
 
                                 }
